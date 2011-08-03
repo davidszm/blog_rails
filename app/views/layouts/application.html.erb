@@ -2,15 +2,34 @@
 <html>
 <head>
   <title>Blog</title>
-  <%= stylesheet_link_tag    "application" %>
+  <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <% unless session[:user_id] %>
-    <%= render "session/form" %>
-  <% end %> 
-<%= yield %>
+
+	<div class="container">
+  	<div id="header" class="span-24">
+  		Cabecera
+  	</div>
+  	
+		<div id="content" class="span-18">
+  		Posts:
+
+			<%= yield %>
+  	</div>
+  	<div id="sidebar" class="span-6 last">
+  		Sidebar:
+
+			<% unless session[:user_id] %>
+				<%= render "session/form" %>
+			<% end %>
+  	</div>
+	
+  	<div id="footer" class="span-24">
+  		Pié
+  	</div>
+  </div>
 
 </body>
 </html>
